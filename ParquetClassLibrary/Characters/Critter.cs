@@ -7,11 +7,6 @@ namespace ParquetClassLibrary.Characters
 {
     public class Critter : Character
     {
-        #region Class Defaults
-        ///<summary>Dimensions in parquets.  Defined by child classes.</summary>
-        //public abstract Vector2Int DimensionsInParquets { get; }
-        #endregion
-
         #region Characteristics
         /// <summary>The type of critter this is.</summary>
         public EntityID CritterType { get; private set; }
@@ -25,7 +20,7 @@ namespace ParquetClassLibrary.Characters
 
         #region Initialization
         /// <summary>
-        /// Used <see cref="Character"/> subtypes.
+        /// Initializes a new instance of the <see cref="T:ParquetClassLibrary.Characters.Critter"/> class.
         /// </summary>
         /// <param name="in_nativeBiome">The <see cref="Biome"/> in which this character is most comfortable.</param>
         /// <param name="in_currentBehavior">The rules that govern how this character acts.  Cannot be null.</param>
@@ -43,6 +38,26 @@ namespace ParquetClassLibrary.Characters
             if (!nonNullCritterType.IsValidForRange(AssemblyInfo.CritterIDs))
             {
                 throw new ArgumentOutOfRangeException(nameof(in_critterType));
+            }
+            foreach (var parquetID in in_avoids)
+            {
+                if (!parquetID.IsValidForRange(AssemblyInfo.FloorIDs)
+                    && !parquetID.IsValidForRange(AssemblyInfo.BlockIDs)
+                    && !parquetID.IsValidForRange(AssemblyInfo.FurnishingIDs)
+                    && !parquetID.IsValidForRange(AssemblyInfo.CollectibleIDs))
+                {
+                    throw new ArgumentOutOfRangeException(nameof(in_avoids));
+                }
+            }
+            foreach (var parquetID in in_seeks)
+            {
+                if (!parquetID.IsValidForRange(AssemblyInfo.FloorIDs)
+                    && !parquetID.IsValidForRange(AssemblyInfo.BlockIDs)
+                    && !parquetID.IsValidForRange(AssemblyInfo.FurnishingIDs)
+                    && !parquetID.IsValidForRange(AssemblyInfo.CollectibleIDs))
+                {
+                    throw new ArgumentOutOfRangeException(nameof(in_seeks));
+                }
             }
 
             CritterType = nonNullCritterType;
