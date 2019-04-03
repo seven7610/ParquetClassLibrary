@@ -33,7 +33,7 @@ namespace ParquetClassLibrary.Characters
 
         #region Initialization
         /// <summary>
-        /// Used <see cref="Character"/> subtypes.
+        /// Used by <see cref="Character"/> subtypes.
         /// </summary>
         /// <param name="in_nativeBiome">The <see cref="Biome"/> in which this character is most comfortable.</param>
         /// <param name="in_currentBehavior">The rules that govern how this character acts.  Cannot be null.</param>
