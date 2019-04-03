@@ -66,6 +66,12 @@ namespace ParquetClassLibrary
         /// Valid identifiers may be positive or negative.  By convention, negative IDs indicate test Items.
         /// </summary>
         public static readonly Range<EntityID> ItemIDs = new Range<EntityID>(50000, 59000);
+
+        /// <summary>
+        /// A subset of the values of <see cref="T:ParquetClassLibrary.Sandbox.ID.EntityID"/> set aside for critters.
+        /// Valid identifiers may be positive or negative.  By convention, negative IDs indicate test Items.
+        /// </summary>
+        public static readonly Range<EntityID> CritterIDs = new Range<EntityID>(60000, 69000);
         #endregion
 
         #region Sandbox Map Element Dimensions

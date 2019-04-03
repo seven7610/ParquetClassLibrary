@@ -1,4 +1,3 @@
-using Newtonsoft.Json;
 using ParquetClassLibrary.Sandbox;
 using System;
 
@@ -9,11 +8,6 @@ namespace ParquetClassLibrary.Characters
     /// </summary>
     public abstract class Character : IEquatable<Character>
     {
-        #region Class Defaults
-        // / <summary>Dimensions in parquets.  Defined by child classes.</summary>
-        //public abstract Vector2Int DimensionsInParquets { get; }
-        #endregion
-
         #region Characteristics
         /// <summary>
         /// Describes the version of serialized data.
@@ -39,18 +33,12 @@ namespace ParquetClassLibrary.Characters
 
         #region Initialization
         /// <summary>
-        /// Used by children of the <see cref="T:ParquetClassLibrary.Sandbox.Parquets.ParquetParent"/> class.
+        /// Used <see cref="Character"/> subtypes.
         /// </summary>
-        /// <param name="in_nativeBiome">Unique identifier for the parquet.  Cannot be null.</param>
-        /// <param name="in_currentBehavior">Player-friendly name of the parquet.  Cannot be null.</param>
-        /// <param name="in_currentLocation">
-        /// A set of flags indicating which, if any, <see cref="T:ParquetClassLibrary.Sandbox.Biome"/>
-        /// this parquet helps to generate.
-        /// </param>
-        /// <param name="in_id">
-        /// <see langword="async"/> unique identifier for this character; if null, a new ID is generated.
-        /// </param>
-        [JsonConstructor]
+        /// <param name="in_nativeBiome">The <see cref="Biome"/> in which this character is most comfortable.</param>
+        /// <param name="in_currentBehavior">The rules that govern how this character acts.  Cannot be null.</param>
+        /// <param name="in_currentLocation">Where this character currently is.</param>
+        /// <param name="in_id">Unique identifier for the character.  If null, a new ID will be created.</param>
         protected Character(Biome in_nativeBiome, Behavior in_currentBehavior, Location in_currentLocation,
                             Guid? in_id = null)
         {
