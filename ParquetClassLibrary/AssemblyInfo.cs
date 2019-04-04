@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 using ParquetClassLibrary;
 using ParquetClassLibrary.Sandbox.ID;
 using ParquetClassLibrary.Utilities;
+using ParquetClassLibrary.Stubs;
 
 // Set assembly values.
 [assembly: AssemblyTitle("Parquet Class Library")]
@@ -32,7 +33,7 @@ namespace ParquetClassLibrary
         /// <summary>Describes the version of the class library itself.</summary>
         public const string LibraryVersion = "0.1.0.0";
 
-        #region Sandbox Parquet and Item ID Ranges
+        #region Entity ID Ranges
         /// <summary>
         /// A subset of the values of <see cref="EntityID"/> set aside for
         /// <see cref="T:ParquetClassLibrary.Sandbox.Parquet.Floor"/>s.
@@ -101,6 +102,12 @@ namespace ParquetClassLibrary
 
         /// <summary>The length of each <see cref="Sandbox.MapRegion"/> dimension in parquets.</summary>
         public const int ParquetsPerRegionDimension = ChunksPerRegionDimension * ParquetsPerChunkDimension;
+
+        /// <summary>Width of the <see cref="Crafting.StrikePanel"/> pattern in <see cref="Crafting.CraftingRecipe"/>.</summary>
+        public const int PanelPatternWidth = 2;
+
+        /// <summary>Height of the <see cref="Crafting.StrikePanel"/> pattern in <see cref="Crafting.CraftingRecipe"/>.</summary>
+        public const int PanelPatternHeight = 8;
         #endregion
     }
 }
